@@ -293,7 +293,7 @@ This project is licensed under the ISC License.
 
 ## 👨‍💻 Author
 
-Created with ❤️ by [Your Name]
+Created with ❤️ by Basit Ali
 
 ## 🙏 Acknowledgments
 
