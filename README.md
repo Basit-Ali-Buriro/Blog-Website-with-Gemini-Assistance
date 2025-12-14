@@ -307,7 +307,7 @@ Created with ❤️ by Basit Ali
 
 ## 📞 Support
 
-For support, email your-email@example.com or open an issue in the repository.
+For support, email basit.web24@gmail.com or open an issue in the repository.
 
 ---
 
