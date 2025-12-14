@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>Testing Blog API</h1>
+    <div id="results"></div>
+    
+    <script>
+        const results = document.getElementById('results');
+        
+        async function testAPI() {
+            const tests = [];
+            
+            // Test 1: Get Posts
+            try {
+                const res = await fetch('http://localhost:5000/api/posts');
+                const data = await res.json();
+                tests.push(`✅ GET /api/posts - ${data.posts?.length || 0} posts found`);
+            } catch (err) {
+                tests.push(`❌ GET /api/posts - ${err.message}`);
+            }
+            
+            // Test 2: Get Categories
+            try {
+                const res = await fetch('http://localhost:5000/api/categories');
+                const data = await res.json();
+                tests.push(`✅ GET /api/categories - ${data.categories?.length || 0} categories found`);
+            } catch (err) {
+                tests.push(`❌ GET /api/categories - ${err.message}`);
+            }
+            
+            // Test 3: CORS Check
+            try {
+                const res = await fetch('http://localhost:5000/api/posts', {
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include'
+                });
+                tests.push(`✅ CORS - Working correctly`);
+            } catch (err) {
+                tests.push(`❌ CORS - ${err.message}`);
+            }
+            
+            results.innerHTML = '<pre>' + tests.join('\n') + '</pre>';
+        }
+        
+        testAPI();
+    </script>
+</body>
+</html>
